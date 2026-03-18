@@ -1,0 +1,126 @@
+/* =========================================================================
+   APP CHROME (HEADER & FOOTER)
+   ========================================================================= */
+
+   :root{
+    --nav-bg:#062a54;       /* deep navy */
+    --nav-fg:#ffffff;
+    --nav-fg-dim:#c3d0e8;
+    --accent:#2b6be7;
+    --chip:#eaf1ff;
+    --shadow:0 10px 24px rgba(3,16,40,.18);
+  }
+  
+  /* ---------- Header ---------- */
+  .hdr{
+    background:var(--nav-bg);
+    color:var(--nav-fg);
+    border-bottom-left-radius:28px;
+    border-bottom-right-radius:28px;
+    padding:14px 16px 18px;
+    position:relative;
+    z-index:10;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  
+  /* tighter when only title present */
+  .hdr--with-title:not(.hdr--with-card){padding-bottom:14px}
+  .hdr--with-card{padding-bottom:22px}
+  
+  /* top row */
+  .hdr-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .hdr-brand{display:flex;align-items:center;gap:8px}
+  .hdr-au{width:34px;height:auto}
+  .hdr-as{width:26px;height:26px;border-radius:50%}
+  .hdr-menu--plain{background:transparent;border:0;display:grid;place-items:center}
+  .hdr-menu--plain img{width:22px;height:22px;filter:brightness(0) invert(1);opacity:.9}
+  
+  /* welcome card (home only) */
+  .hdr-card{
+    margin-top:8px;display:flex;gap:12px;align-items:center
+  }
+  .hdr-avatar{
+    width:42px;height:42px;border-radius:999px;display:grid;place-items:center;
+    background:#ff6aa6;color:#fff;font:800 13px/1 Poppins,system-ui
+  }
+  .hdr-card-text{display:flex;flex-direction:column}
+  .hdr-card-title{font:800 16px/1.15 Poppins,system-ui}
+  .hdr-card-sub{font:600 11.5px/1.2 Poppins,system-ui;color:var(--nav-fg-dim)}
+  
+  /* title row (other pages) */
+  .hdr-titleRow{display:flex;align-items:center;gap:10px;margin-top:8px}
+  .hdr-back{background:transparent;border:0;display:grid;place-items:center}
+  .hdr-backArrow{
+    width:10px;height:10px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)
+  }
+  .hdr-title{margin:0;font:800 18px/1.2 Poppins,system-ui}
+  
+  /* ---------- Slideout Menu ---------- */
+  .menu-overlay{position:fixed;inset:0;background:rgba(6,21,44,.45);display:flex;justify-content:flex-end;z-index:50}
+  .menu-panel{
+    width:min(360px,82vw);height:100%;background:#fff;box-shadow:-8px 0 28px rgba(2,6,23,.22);
+    display:flex;flex-direction:column
+  }
+  .menu-top{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid #eef1f6}
+  .menu-as img{width:34px;height:34px;border-radius:999px}
+  .menu-close{background:transparent;border:0}
+  .menu-close img{width:22px;height:22px}
+  
+  .menu-list{display:flex;flex-direction:column;gap:2px;padding:8px 0}
+  .menu-item{
+    display:flex;align-items:center;gap:14px;padding:12px 16px;background:transparent;border:0;text-align:left;
+    font:700 13px/1 Poppins,system-ui;color:#0f172a
+  }
+  .menu-item img{width:22px;height:22px}
+  
+  .menu-page{padding:16px}
+  .menu-title{margin:0 0 10px;color:#062a54;font:800 16px/1.2 Poppins,system-ui}
+  .profile-form .row{margin-bottom:10px}
+  .profile-form .row.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .profile-form label{display:block;font:700 11.5px/1 Poppins,system-ui;color:#475467;margin-bottom:4px}
+  .profile-form input{
+    width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;font:600 13px/1 Poppins,system-ui;color:#0f172a;background:#fff
+  }
+  
+  .menu-actions{display:flex;justify-content:flex-end;margin-top:12px}
+  .btn-secondary{
+    padding:10px 14px;border:1px solid #d8deea;border-radius:10px;background:#f6f8fc;color:#0f172a;font:800 12.5px/1 Poppins,system-ui
+  }
+  
+  .about-card{
+    border:1px solid #eef1f6;border-radius:12px;padding:16px;text-align:center
+  }
+  .about-logo{width:160px;margin:0 auto 10px;display:block}
+  .about-copy{color:#334155;font:600 13px/1.45 Poppins,system-ui}
+  .about-links{display:grid;gap:8px;margin-top:12px;justify-items:start}
+  .about-links .alink{display:inline-flex;align-items:center;gap:8px;color:#17499a;text-decoration:none;font:700 12.5px/1 Poppins,system-ui}
+  .about-links .alink img{width:16px;height:16px}
+  
+  /* ---------- Footer ---------- */
+  .ftr{
+    position:fixed;left:0;right:0;bottom:0;background:var(--nav-bg);color:var(--nav-fg);
+    border-top-left-radius:22px;border-top-right-radius:22px;
+    box-shadow:0 -10px 24px rgba(3,16,40,.22);
+    padding:8px 10px calc(10px + env(safe-area-inset-bottom));
+    z-index:20;
+  }
+  .ftr-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;align-items:end;max-width:980px;margin:0 auto}
+  
+  .ftr-item{
+    position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;
+    background:transparent;border:0;color:#9fb0cc;cursor:pointer;padding:8px 0 6px
+  }
+  .ftr-item .ftr-ico{width:22px;height:22px;filter:brightness(0) invert(1);opacity:.9}
+  .ftr-item .ftr-label{font:800 10.5px/1.1 Poppins,system-ui;letter-spacing:.3px;text-transform:uppercase}
+  
+  /* subtle active bubble behind the icon (no layout jump) */
+  .ftr-item .ftr-bubble{
+    position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+    width:36px;height:24px;background:linear-gradient(180deg,#5aa0ff 0%,#17499a 100%);
+    border-radius:999px;opacity:0;transition:opacity .18s ease;z-index:-1
+  }
+  .ftr-item.active{color:#fff}
+  .ftr-item.active .ftr-bubble{opacity:1}
+  .ftr-item.active .ftr-ico{opacity:1}
+  

@@ -1,0 +1,505 @@
+/* ===============================
+   Splash – polished & responsive
+   =============================== */
+
+   .splash-root {
+    --background: #193153;
+    background: #193153;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    color: #fff;
+  }
+  
+  .splash-center {
+    text-align: center;
+    z-index: 2;
+    padding-inline: 16px;
+    max-width: 92vw;
+  }
+  
+  .splash-logo {
+    width: clamp(180px, 42vw, 260px);
+    height: auto;
+    margin: 0 auto 12px;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+  
+  .splash-tagline {
+    margin: 0;
+    font-size: clamp(13.5px, 3.4vw, 16px);
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: 0.5px;
+  }
+  
+  .splash-tagline .accent {
+    color: #eb747a;
+    font-weight: 600;
+  }
+  
+  .splash-ripples {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .splash-ripples span {
+    position: absolute;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transform: scale(0.1);
+    animation: as-ripple 2.5s ease-out infinite;
+  }
+  
+  .splash-ripples span:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  .splash-ripples span:nth-child(3) {
+    animation-delay: 1s;
+  }
+  .splash-ripples span:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+  
+  @keyframes as-ripple {
+    0% {
+      opacity: 0.2;
+      transform: scale(0.1);
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+  
+  /* ======================================================
+     LOGIN (Credentials) – pixel match & responsive
+     ====================================================== */
+  
+  .creds-root {
+    --background: #fff;
+    background: #fff;
+  }
+  
+  /* Constrain content column */
+  .page-wrap {
+    width: min(360px, 92vw);
+    margin-inline: auto;
+  }
+  
+  /* Hero */
+  .creds-hero {
+    background: linear-gradient(180deg, #183354 0%, #152c48 40%, #0d1e34 100%);
+    height: 46vh;
+    min-height: 300px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    box-shadow: 0 18px 28px rgba(2, 17, 34, 0.22);
+    display: grid;
+    place-items: end center;
+    padding-bottom: 22px;
+  }
+  .hero-inner {
+    text-align: center;
+  }
+  .hero-logo {
+    width: min(190px, 60vw);
+    height: auto;
+    margin: 0 auto 8px;
+  }
+  .hero-tagline {
+    margin: 0;
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .hero-tagline .accent {
+    color: #eb747a;
+    font-weight: 700;
+  }
+  
+  /* Form area */
+  .creds-form {
+    padding: 22px 16px 26px;
+    color: #1b2430;
+  }
+  .form-title {
+    margin: 10px 0 6px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #2a5bb3;
+    text-align: center;
+    letter-spacing: -0.2px;
+  }
+  .form-sub {
+    margin: 0 0 18px;
+    text-align: center;
+    font-size: 13px;
+    color: #6d7aa0;
+  }
+  
+  /* Labels + fields */
+  .field-label {
+    display: block;
+    margin: 14px 0 6px;
+    font-size: 13.5px;
+    color: #2a5bb3;
+    font-weight: 600;
+  }
+  .field {
+    --background: #fff;
+    --padding-start: 16px;
+    --inner-padding-end: 16px;
+    --min-height: 48px;
+    border: 1px solid #e5eaf4;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(7, 21, 42, 0.04);
+    transition: box-shadow 200ms ease-in-out;
+  }
+  .field.ion-focused {
+    box-shadow: 0 2px 8px rgba(7, 21, 42, 0.08);
+  }
+  .field .native-input,
+  .field input {
+    font-size: 14px !important;
+  }
+  .field .native-input::placeholder,
+  .field input::placeholder {
+    color: #a7b1c7;
+  }
+  
+  /* Forgot link */
+  .link-forgot {
+    margin: 6px 0 12px;
+    background: none;
+    border: none;
+    color: #8a95b1;
+    font-size: 12.5px;
+    text-align: left;
+    padding: 0;
+  }
+  
+  /* Error */
+  .error-msg {
+    text-align: center;
+    margin: 6px 0 10px;
+  }
+  
+  /* Primary CTA – centered, no white 'plate' */
+  .creds-form .login-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-inline: auto;
+    max-width: min(360px, 92vw);
+    box-sizing: border-box;
+  }
+  .btn-login {
+    --background: #2a5bb3;
+    --background-hover: #244e9b;
+    --background-focused: #2a5bb3;
+    --background-activated: #244e9b;
+    --color: #fff;
+    --border-radius: 14px;
+    --box-shadow: none;
+    margin: 0;
+    box-shadow: 0 6px 14px rgba(42, 91, 179, 0.22);
+  }
+  .btn-login::part(native) {
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: var(--background) !important;
+  }
+  
+  /* Tabs rail – centered, wrapped, never overflows */
+  .login-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: 100%;
+    margin-top: 18px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Core tab look */
+  .login-tabs .tab {
+    font-family: inherit;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 14px;
+    height: 38px;
+    padding: 0 12px;
+    text-transform: none;
+    cursor: pointer;
+    flex: 1 1 auto;
+  }
+  .login-tabs .tab-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .login-tabs .tab-content img {
+    height: 20px;
+    width: auto;
+  }
+  
+  /* Active = solid button */
+  .login-tabs .tab-solid.current {
+    background: #eef3f8;
+    color: #22304f;
+    border-color: transparent;
+    box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04);
+    font-weight: 600;
+  }
+  
+  /* Outline tabs */
+  .login-tabs .tab-outline {
+    background: transparent;
+    border-color: #ced7e6;
+    color: #2c3c61;
+    box-shadow: none;
+  }
+  
+  /* Dark version of tabs for PIN/Biometric screens */
+  .login-tabs.tabs-dark .tab.current {
+    background: #23466f;
+    color: #fff;
+    border-color: #23466f;
+    box-shadow: none;
+  }
+  .login-tabs.tabs-dark .tab-outline {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Slim separators */
+  .tab-sep {
+    flex: 0 0 1px;
+    width: 1px;
+    height: 22px;
+    background: #e6ecf5;
+    align-self: center;
+  }
+  .tabs-dark .tab-sep {
+    flex: 0 0 1px;
+    width: 1px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.2);
+    align-self: center;
+  }
+  
+  /* Tablet and larger viewports */
+  @media (min-width: 768px) {
+    .login-tabs {
+      flex-wrap: nowrap;
+    }
+  }
+  
+  /* Optional tiny squeeze on very narrow widths */
+  @media (max-width: 360px) {
+    .login-tabs .tab {
+      font-size: 12.5px;
+    }
+  }
+  
+  /* ===========================
+     PIN Login – pixel match
+     =========================== */
+  
+  .pin-root-gradient {
+    --background: linear-gradient(180deg, #183354 0%, #152c48 40%, #0d1e34 100%);
+    height: 100%;
+    width: 100%;
+  }
+  
+  .pin-hero {
+    position: relative;
+    min-height: 48vh;
+    padding-bottom: 22px;
+    display: grid;
+    place-items: end center;
+  }
+  .pin-hero-inner {
+    text-align: center;
+  }
+  .pin-logo {
+    width: min(150px, 45vw);
+    height: auto;
+    margin: 0 auto 18px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+  .pin-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 22px;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  .pin-readout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: transform 120ms ease;
+  }
+  .pin-readout span.filled {
+    color: #fff;
+  }
+  .pin-readout.shake {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  
+  /* Pin readout shake animation for incorrect PIN */
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+      transform: translate3d(+2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+      transform: translate3d(+4px, 0, 0);
+    }
+  }
+  
+  /* Keypad Sheet */
+  .pin-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
+    padding: 24px 16px;
+  }
+  .pin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .pin-grid .key {
+    font-family: inherit;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2c3c61;
+    background: #fff;
+    border: 1px solid #e0eaf4;
+    border-radius: 50%;
+    height: clamp(64px, 18vw, 72px);
+    width: clamp(64px, 18vw, 72px);
+    max-width: 90px;
+    max-height: 90px;
+    place-self: center;
+    box-shadow: 0 4px 12px rgba(7, 21, 42, 0.06);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  .pin-grid .key:active {
+    transform: scale(0.95);
+    box-shadow: none;
+  }
+  .pin-grid .key.del {
+    font-size: 24px;
+    color: #8a95b1;
+  }
+  .pin-error {
+    text-align: center;
+    margin: 12px 0 0;
+    font-size: 13px;
+  }
+  
+  /* ===============================
+     Biometric Login – pixel match
+     =============================== */
+  
+  .bio-root {
+    --background: linear-gradient(180deg, #183354 0%, #152c48 40%, #0d1e34 100%);
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+  }
+  
+  .bio-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    max-width: min(360px, 92vw);
+    padding: 40px 16px;
+    box-sizing: border-box;
+  }
+  
+  .bio-logo {
+    width: min(150px, 45vw);
+    height: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+  
+  .bio-touch {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: auto 0;
+    display: block;
+    max-width: 100%;
+    max-height: 45vh;
+    place-self: center;
+    transition: transform 120ms ease;
+  }
+  .bio-touch:active {
+    transform: scale(0.96);
+  }
+  
+  .bio-fingerprint-hero {
+    display: block;
+    width: min(200px, 60vw);
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+  }

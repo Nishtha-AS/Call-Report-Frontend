@@ -1,0 +1,64 @@
+:root{
+    --ink:#132b4a;
+    --muted:#6b7a96;
+    --blue:#2e5fb4;
+    --line:#e5edf8;
+    --card:#ffffff;
+    --shadow: 0 10px 22px rgba(10,30,70,.10);
+    --footer-space: 180px; /* keep clear of fixed AppFooter */
+  }
+  
+  /* IonContent scrolling and footer clearance */
+  ion-content.cr4-content { --background:#fff; }
+  ion-content.cr4-content::part(scroll){
+    padding-bottom: calc(var(--footer-space) + env(safe-area-inset-bottom));
+  }
+  
+  html, body { overflow-x:hidden; }
+  .page-shell, .page-shell * { box-sizing:border-box; }
+  .bounded{ width:100%; max-width:520px; margin:0 auto; }
+  
+  /* CTPT badge */
+  .ctpt-row{ margin-top:6px; display:flex; justify-content:flex-end; }
+  .ctpt-badge{
+    display:inline-block; background:#f5f8ff; border:1px solid #d7e4ff; color:#1d3e76;
+    padding:6px 10px; border-radius:10px; font-weight:700;
+  }
+  
+  /* Headers */
+  .cr4-top{ display:flex; align-items:center; justify-content:space-between; }
+  .cr4-h{ font:800 18px/1.2 Poppins,system-ui; color:#1b3f7a; margin:8px 0 4px; }
+  .cr4-subnote{ color:#7483a3; font:600 12px/1.2 Poppins,system-ui; margin-bottom:10px; }
+  .page-count{ color:#607399; font:700 12px/1 Poppins,system-ui; }
+  .req{ color:#d2352a; }
+  
+  /* Fields */
+  .field{ display:flex; flex-direction:column; gap:6px; margin:10px 0; }
+  .field > label{ color:#173456; font:700 12.5px/1 Poppins,system-ui; }
+  
+  .field input, .field textarea{
+    width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+    font:600 13px/1 Poppins,system-ui; color:#173456; background:#fff; outline:none;
+  }
+  .pill{ border:1px solid #d7e4ff; background:#eef3ff; color:#1b3e77; font-weight:700; }
+  .ta{
+    min-height:110px; resize:vertical;
+  }
+  
+  /* Yes/No small boxes to mirror screenshot */
+  .yn-boxes{ display:flex; gap:24px; align-items:center; margin-top:4px; }
+  .yn-box{ display:inline-flex; align-items:center; gap:8px; color:#173456; font:700 13px/1 Poppins,system-ui; }
+  .yn-box input{
+    width:18px; height:18px; border:1px solid #cfd9ef; border-radius:4px; appearance:auto; accent-color:#2e5fb4;
+  }
+  
+  /* Buttons (shared look) */
+  .btn{
+    border:none; background:#2e5fb4; color:#fff; padding:10px 14px; border-radius:10px;
+    font:800 12.5px/1 Poppins,system-ui; cursor:pointer; box-shadow:0 8px 18px rgba(46,95,180,.28);
+  }
+  .btn.ghost{ background:#fff; color:#27476f; border:1px solid #27476f; box-shadow:none; }
+  .btn.big{ min-width:110px; }
+  .btn.disabled{ opacity:.6; cursor:not-allowed; }
+  .cr4-actions{ display:flex; gap:8px; justify-content:space-between; margin:12px 0; }
+  

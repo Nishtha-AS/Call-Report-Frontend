@@ -1,0 +1,75 @@
+:root{
+    --ink:#132b4a;
+    --muted:#6b7a96;
+    --blue:#2e5fb4;
+    --line:#e5edf8;
+    --footer-space: 120px;
+  }
+  
+  /* keep footer from overlapping anything if we scroll (rare here) */
+  ion-content.crs-content { --background:#fff; }
+  ion-content.crs-content::part(scroll){
+    padding-bottom: calc(var(--footer-space) + env(safe-area-inset-bottom));
+  }
+  
+  .bounded{ width:100%; max-width:520px; margin:0 auto; }
+  .success-shell{
+    min-height: calc(100vh - 210px); /* header+footer area accounted */
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:24px 16px;
+  }
+  
+  /* Animated check */
+  .check-wrap{
+    width: 160px; height: 160px; display:grid; place-items:center;
+    animation: popIn 600ms ease-out both;
+    filter: drop-shadow(0 18px 32px rgba(0,120,40,.20));
+  }
+  .check-svg{ width: 160px; height: 160px; }
+  .ok-circle{
+    transform-origin: 60px 60px;
+    animation: bubble 1200ms ease-in-out 100ms both;
+  }
+  .ok-tick{
+    stroke-dasharray: 120;
+    stroke-dashoffset: 120;
+    animation: draw 700ms ease-out 300ms forwards;
+  }
+  
+  /* Titles */
+  .ok-title{
+    margin: 18px 0 4px;
+    color:#39a26b;
+    font: 800 22px/1.2 Poppins, system-ui;
+  }
+  .ok-sub{
+    color:#2b2b2b;
+    font: 800 18px/1.2 Poppins, system-ui;
+    letter-spacing:.2px;
+  }
+  
+  /* Button */
+  .ok-actions{ margin-top: 24px; }
+  .btn{
+    border:none; background: linear-gradient(90deg,#214f9c,#1aa6e7);
+    color:#fff; padding:12px 24px; border-radius:12px; font:800 14px/1 Poppins,system-ui;
+    cursor:pointer; box-shadow:0 10px 22px rgba(18,70,160,.25);
+  }
+  .btn.big{ min-width:140px; }
+  
+  /* Animations */
+  @keyframes popIn{
+    0%{ transform: scale(.6); opacity:0 }
+    60%{ transform: scale(1.06); opacity:1 }
+    100%{ transform: scale(1); }
+  }
+  @keyframes draw{
+    to{ stroke-dashoffset: 0; }
+  }
+  @keyframes bubble{
+    0%{ transform: scale(.85); }
+    45%{ transform: scale(1.08); }
+    70%{ transform: scale(.97); }
+    100%{ transform: scale(1); }
+  }
+  

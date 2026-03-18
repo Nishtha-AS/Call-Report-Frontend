@@ -1,0 +1,91 @@
+:root{
+    --ink:#132b4a;
+    --muted:#6b7a96;
+    --blue:#2e5fb4;
+    --line:#e5edf8;
+    --card:#ffffff;
+    --shadow: 0 10px 22px rgba(10,30,70,.10);
+    /* more space so buttons clear home indicator / AppFooter */
+    --footer-space: 220px;
+  }
+  
+  /* IonContent scroll padding so nothing is hidden by fixed UI */
+  ion-content.cr5-content { --background:#fff; }
+  ion-content.cr5-content::part(scroll){
+    padding-bottom: calc(var(--footer-space) + env(safe-area-inset-bottom));
+  }
+  
+  html, body { overflow-x:hidden; }
+  .page-shell, .page-shell * { box-sizing:border-box; }
+  .bounded{ width:100%; max-width:520px; margin:0 auto; }
+  
+  /* Top */
+  .topbar{ display:flex; align-items:flex-start; justify-content:space-between; margin-top:6px; }
+  .topbar-rt{ display:flex; align-items:center; gap:8px; }
+  .ctpt-badge{ display:inline-block; background:#f5f8ff; border:1px solid #d7e4ff; color:#1d3e76; padding:6px 10px; border-radius:10px; font-weight:700;}
+  .cr5-h{ font:800 18px/1.2 Poppins,system-ui; color:#1b3f7a; margin:8px 0 2px; }
+  .cr5-subnote{ color:#7483a3; font:600 12px/1.2 Poppins,system-ui; margin:4px 0 10px; }
+  .page-count{ color:#607399; font:700 12px/1 Poppins,system-ui; }
+  .req{ color:#d2352a; }
+  
+  /* Fields */
+  .field{ display:flex; flex-direction:column; gap:6px; margin:12px 0; }
+  .field > label{ color:#173456; font:700 12.5px/1 Poppins,system-ui; }
+  .field input, .field textarea, .field select{
+    width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+    font:600 13px/1 Poppins,system-ui; color:#173456; background:#fff; outline:none;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{
+    border-color:#cfe0ff; box-shadow:0 0 0 3px rgba(46,95,180,.12);
+  }
+  .pill{ border:1px solid #d7e4ff; background:#eef3ff; color:#1b3e77; font-weight:700; }
+  .readonly{ cursor:not-allowed; }
+  .ta{ min-height:110px; resize:vertical; }
+  
+  /* Two-column row (Churning) */
+  .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+  @media (max-width:520px){ .grid-2{ grid-template-columns: 1fr; } }
+  
+  /* Yes/No small checkboxes */
+  .yn-boxes{ display:flex; gap:24px; align-items:center; margin-top:4px; }
+  .yn-box{ display:inline-flex; align-items:center; gap:8px; color:#173456; font:700 13px/1 Poppins,system-ui; }
+  .yn-box input{ width:18px; height:18px; appearance:auto; accent-color:#2e5fb4; }
+  
+  /* Buttons */
+  .btn{
+    border:none; background:#2e5fb4; color:#fff; padding:10px 14px; border-radius:10px;
+    font:800 12.5px/1 Poppins,system-ui; cursor:pointer; box-shadow:0 8px 18px rgba(46,95,180,.28);
+    transition:transform .03s ease, filter .15s ease;
+  }
+  .btn.grad{
+    background: linear-gradient(180deg, #5aa0ff 0%, #2f5fb3 100%);
+    box-shadow:0 8px 18px rgba(46,95,180,.28);
+  }
+  .btn:hover{ filter:brightness(.98); }
+  .btn:active{ transform:translateY(1px); }
+  .btn.ghost{ background:#fff; color:#27476f; border:1px solid #27476f; box-shadow:none; }
+  .btn.big{ min-width:110px; }
+  .btn.disabled{ opacity:.6; cursor:not-allowed; }
+  
+  /* ===== Sticky action bar ===== */
+  .cr5-sticky-actions{
+    position: sticky;
+    bottom: calc(var(--footer-space) - 90px); /* sits above fixed AppFooter / home bar */
+    z-index: 5;
+    padding: 10px 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0), #ffffff 40%);
+  }
+  .cr5-actions-inner{
+    display:flex; align-items:center; gap:10px;
+  }
+  .cr5-actions-inner .spacer{ flex:1; }
+  
+  /* Bottom spacer so last field never hides under sticky bar */
+  .after-actions-spacer{ height: 28px; }
+  
+  /* Small screens */
+  @media (max-width:420px){
+    .btn.big{ min-width:96px; padding:10px 12px; }
+    .cr5-actions-inner{ gap:8px; }
+  }
+  

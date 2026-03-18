@@ -1,0 +1,117 @@
+:root{
+    --ink:#132b4a;
+    --muted:#6b7a96;
+    --blue:#2e5fb4;
+    --line:#e5edf8;
+    --chip:#eef3ff;
+    --card:#ffffff;
+    --shadow: 0 10px 22px rgba(10,30,70,.10);
+    --footer-space: 180px; /* clear fixed AppFooter */
+  }
+  
+  /* IonContent scrolling & footer clearance */
+  ion-content.cr6-content { --background:#fff; }
+  ion-content.cr6-content::part(scroll){
+    padding-bottom: calc(var(--footer-space) + env(safe-area-inset-bottom));
+  }
+  
+  html, body { overflow-x:hidden; }
+  .page-shell, .page-shell * { box-sizing:border-box; }
+  .bounded{ width:100%; max-width:520px; margin:0 auto; }
+  
+  /* CTPT pill */
+  .ctpt-row{ margin-top:6px; display:flex; justify-content:flex-end; }
+  .ctpt-badge{
+    display:inline-block; background:#f5f8ff; border:1px solid #d7e4ff; color:#1d3e76;
+    padding:6px 10px; border-radius:10px; font-weight:700;
+  }
+  
+  /* Header */
+  .cr6-top{ display:flex; align-items:center; justify-content:space-between; }
+  .cr6-h{ font:800 18px/1.2 Poppins,system-ui; color:#1b3f7a; margin:8px 0 4px; }
+  .cr6-subnote{ color:#7483a3; font:600 12px/1.2 Poppins,system-ui; margin-bottom:10px; }
+  .page-count{ color:#607399; font:700 12px/1 Poppins,system-ui; }
+  .req{ color:#d2352a; }
+  
+  /* Tabs */
+  .tabs{
+    margin:8px 0 12px;
+    display:flex; gap:8px; align-items:flex-end;
+    border-bottom:1px solid var(--line);
+  }
+  .tab{
+    appearance:none; border:none; cursor:pointer;
+    padding:10px 14px; border-radius:10px 10px 0 0;
+    background:#dfe8ff; color:#27476f; font:800 13px/1 Poppins,system-ui;
+  }
+  .tab.active{
+    background:#2e5fb4; color:#fff;
+  }
+  
+  /* Section header */
+  .sec-h{ color:#1b3f7a; font:800 14px/1 Poppins,system-ui; margin:4px 0 8px; }
+  
+  /* PDD cards */
+  .pdd-list{ display:grid; gap:12px; }
+  .pdd-card{
+    background:#fff; border:1px solid var(--line); border-radius:12px;
+    box-shadow:var(--shadow); padding:10px 10px 8px;
+  }
+  .pdd-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .meta{ display:flex; gap:22px; flex-wrap:wrap; }
+  .kv{ display:flex; gap:6px; align-items:baseline; }
+  .k{ color:#5e6f92; font:800 11.5px/1 Poppins,system-ui; }
+  .v{ color:#1b3f7a; font:800 12.5px/1 Poppins,system-ui; }
+  
+  .text, .plan{ margin-top:8px; }
+  .text p, .plan p{ margin:4px 0 0; color:#173456; font:600 12.5px/1.35 Poppins,system-ui; }
+  
+  .closure-btn{
+    border:none; background:#eaf2ff; color:#2e5fb4; border-radius:12px; padding:8px 12px;
+    font:800 12px/1 Poppins,system-ui; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .pen{ font-size:14px; }
+  
+  .empty-note{
+    background:#f7f9ff; border:1px dashed #cfe0ff; color:#53658a;
+    padding:16px; border-radius:12px; font:600 12.5px/1.35 Poppins,system-ui;
+  }
+  
+  /* Buttons */
+  .btn{
+    border:none; background:#2e5fb4; color:#fff; padding:10px 14px; border-radius:10px;
+    font:800 12.5px/1 Poppins,system-ui; cursor:pointer; box-shadow:0 8px 18px rgba(46,95,180,.28);
+  }
+  .btn.ghost{ background:#fff; color:#27476f; border:1px solid #27476f; box-shadow:none; }
+  .btn.big{ min-width:110px; }
+  .cr6-actions{ display:flex; gap:8px; justify-content:space-between; margin:12px 0; }
+  
+  /* Dialog */
+  .dlg-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.45);
+    display:grid; place-items:center; z-index:60;
+  }
+  .dlg{
+    width:100%; max-width:520px; background:#fff; border-radius:16px;
+    border:1px solid var(--line); box-shadow:0 18px 36px rgba(2,17,34,.35);
+    overflow:hidden;
+  }
+  .dlg-h{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px; background:#f7f9ff; border-bottom:1px solid var(--line);
+    color:#173456; font:800 14px/1 Poppins,system-ui;
+  }
+  .dlg-b{ padding:12px; }
+  .dlg-b textarea{
+    width:100%; min-height:160px; border:1px solid #cfe0ff; border-radius:12px;
+    padding:12px; background:#eef3ff; color:#173456; font:600 13px/1.35 Poppins,system-ui; resize:vertical;
+  }
+  .dlg-f{ padding:10px 12px 14px; display:flex; justify-content:center; }
+  .dlg .x{
+    border:none; background:transparent; font-size:18px; cursor:pointer; line-height:1;
+    color:#27476f;
+  }
+  

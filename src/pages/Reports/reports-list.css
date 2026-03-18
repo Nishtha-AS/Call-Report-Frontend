@@ -1,0 +1,106 @@
+/* ---------- Page scaffolding ---------- */
+.header-sticky{position:sticky;top:0;z-index:50}
+.with-header{--app-header-h:120px;padding-top:var(--app-header-h)}
+.content-with-footer{--padding-bottom:var(--app-footer-height,84px);padding-bottom:var(--padding-bottom)}
+.reports-page .bounded{max-width:980px;margin:0 auto;padding:12px 12px 20px}
+
+/* Better type rendering */
+.reports-page, .reports-page *{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Use the same font family as other CR screens */
+:root{--rpt-font: Poppins, Inter, system-ui, -apple-system, Segoe UI, Roboto}
+
+/* ---------- Title row ---------- */
+.title-row{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;margin-bottom:8px}
+.title-row h1{margin:0;font:800 16px/1.15 var(--rpt-font);color:#0f172a;letter-spacing:.2px}
+.back{width:32px;height:32px;border-radius:10px;border:1px solid #e6e8ef;background:#fff;position:relative}
+.back::before{content:'';position:absolute;left:50%;top:50%;width:9px;height:9px;border-left:2px solid #0f172a;border-bottom:2px solid #0f172a;transform:translate(-25%,-50%) rotate(45deg)}
+
+/* ---------- Tools ---------- */
+.tools-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin:6px 0 10px}
+.search{--background:#fff;--box-shadow:0 1px 2px rgba(16,24,40,.05);border-radius:10px}
+.sort{display:inline-flex;align-items:center;gap:6px;border:1px solid #e6e8ef;background:#fff;border-radius:10px;padding:8px 10px;font:700 11.5px/1 var(--rpt-font);color:#0f172a}
+.sort-ico{width:12px;height:12px;border-bottom:2px solid #0f172a;border-left:2px solid #0f172a;transform:rotate(-45deg)}
+
+/* ---------- List ---------- */
+.report-list{display:grid;gap:12px}
+
+/* ---------- Card ---------- */
+.report-card{
+  background:#fff;border:1px solid #e7ebf4;border-radius:14px;
+  box-shadow:0 6px 16px rgba(2,6,23,.06);overflow:hidden
+}
+
+/* ---------- Header: 4-column on wide, 2-column on mobile ---------- */
+.report-head{
+  display:grid;
+  grid-template-columns:auto 1fr 150px 160px;  /* avatar | customer | CTPT | status */
+  gap:12px;align-items:center;padding:10px 12px;
+  background:linear-gradient(180deg,#ffffff 0%,#f7faff 100%)
+}
+@media (max-width:560px){.report-head{grid-template-columns:auto 1fr}}
+.avatar{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:#eef2ff;color:#2834a3;font:800 12px/1 var(--rpt-font);
+  box-shadow:inset 0 0 0 1px rgba(55,48,163,.18)
+}
+
+/* Label + value typography (cleaner + consistent) */
+.muted{
+  margin:0;font:700 11px/1 var(--rpt-font);color:#667085;letter-spacing:.25px
+}
+.val{
+  margin:2px 0 0;font:800 13.5px/1.25 var(--rpt-font);color:#0f172a;letter-spacing:.15px
+}
+
+/* CTPT chip (right column) */
+.rcol{min-width:0}
+.rcol.ctpt{justify-self:start}
+@media (min-width:561px){.rcol.ctpt{justify-self:end;text-align:right}}
+.linkish{
+  display:inline-block;padding:6px 10px;border-radius:10px;background:#f0f4ff;border:1px solid #d7e3ff;
+  color:#1e4fd9;font:800 12px/1 var(--rpt-font);text-decoration:none;white-space:nowrap;
+  box-shadow:inset 0 -2px 6px rgba(23,37,84,.05)
+}
+
+/* Status chip (rightmost column) */
+.rcol.status{text-align:right}
+@media (max-width:560px){.rcol.status{text-align:left}}
+.chip{display:inline-block;padding:4px 10px;border-radius:999px;font:900 11px/1 var(--rpt-font);letter-spacing:.2px}
+.chip.success{background:#dcfce7;color:#15803d}
+.chip.submitted{background:#eaf8f0;color:#1b8a57}
+.chip.draft{background:#fdecc8;color:#a16207}
+
+/* ---------- Body ---------- */
+.report-body{padding:0}
+
+/* Two-column fact grid; perfectly aligned baselines */
+.row{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #eef2fb;background:#fff
+}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+.item{padding:10px 12px;border-right:1px solid #eef2fb}
+.item:nth-child(2n){border-right:none}
+.item .muted{color:#6b7280}
+.item .val{color:#111827}
+
+/* Linked + Sent (compact, better hierarchy) */
+.linked-row,.sent-row{
+  display:flex;gap:8px 10px;align-items:center;flex-wrap:wrap;padding:10px 12px;border-top:1px solid #eef2fb
+}
+.sent-row .linkish{padding:4px 8px;border-radius:8px}
+
+/* ---------- Download button ---------- */
+.download-wrap{display:flex;justify-content:flex-end;margin-top:12px}
+.btn{appearance:none;border:0;cursor:pointer}
+.btn.download{
+  background:linear-gradient(180deg,#5aa0ff 0%,#17499a 100%);color:#fff;border-radius:10px;padding:10px 14px;
+  font:800 12px/1 var(--rpt-font);display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 14px rgba(23,73,154,.2)
+}
+.dl-ico{width:14px;height:14px;position:relative;display:inline-block}
+.dl-ico::before,.dl-ico::after{content:'';position:absolute;left:50%;transform:translateX(-50%);background:#fff}
+.dl-ico::before{top:0;width:2px;height:9px}
+.dl-ico::after{bottom:0;width:9px;height:2px}
+
+/* ---------- Empty ---------- */
+.empty{text-align:center;color:#6b7280;padding:20px 8px}

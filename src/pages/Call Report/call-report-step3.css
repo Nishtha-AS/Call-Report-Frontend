@@ -1,0 +1,120 @@
+:root{
+    --ink:#132b4a;
+    --muted:#6b7a96;
+    --blue:#2e5fb4;
+    --line:#e5edf8;
+    --chip:#eef3ff;
+    --card:#ffffff;
+    --shadow: 0 10px 22px rgba(10,30,70,.10);
+    /* Increase to ensure we clear your fixed AppFooter comfortably */
+    --footer-space: 220px;
+  }
+  
+  /* IonContent scroll padding so content never sits under AppFooter */
+  ion-content.cr3-content { --background:#fff; }
+  ion-content.cr3-content::part(scroll){
+    padding-bottom: calc(var(--footer-space) + env(safe-area-inset-bottom));
+  }
+  
+  html, body { overflow-x:hidden; }
+  .page-shell, .page-shell * { box-sizing:border-box; }
+  .bounded{ width:100%; max-width:520px; margin:0 auto; }
+  
+  /* Top */
+  .topbar{ display:flex; align-items:flex-start; justify-content:space-between; margin-top:6px; }
+  .topbar-rt{ display:flex; align-items:center; gap:8px; }
+  .ctpt-badge{ display:inline-block; background:#f5f8ff; border:1px solid #d7e4ff; color:#1d3e76; padding:6px 10px; border-radius:10px; font-weight:700;}
+  .cr3-h{ font:800 18px/1.2 Poppins,system-ui; color:#1b3f7a; margin:8px 0 2px; }
+  .cr3-subnote{ color:#7483a3; font:600 12px/1.2 Poppins,system-ui; margin:4px 0 10px; }
+  .page-count{ color:#607399; font:700 12px/1 Poppins,system-ui; }
+  .req{ color:#d2352a; }
+  
+  /* Fields */
+  .field{ display:flex; flex-direction:column; gap:6px; margin:12px 0; }
+  .field.tight{ margin-top:10px; }
+  .field > label{ color:#173456; font:700 12.5px/1 Poppins,system-ui; }
+  .field input, .field select, .field textarea{
+    width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font:600 13px/1 Poppins,system-ui;
+    color:#173456; outline:none; background:#fff;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:#cfe0ff; box-shadow:0 0 0 3px rgba(46,95,180,.12);
+  }
+  .pill{ border:1px solid #d7e4ff; background:#eef3ff; color:#1b3e77; font-weight:700; }
+  .readonly{ cursor:not-allowed; }
+  
+  /* Cards */
+  .card{ background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); overflow:hidden; margin:10px auto; }
+  .card-h{ background:#f7f9ff; border-bottom:1px solid var(--line); padding:10px 12px; color:#1b3f7a; font:800 13.5px/1 Poppins,system-ui; }
+  .pad{ padding:10px 12px; }
+  .ta{ width:100%; min-height:92px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font:600 13px/1.4 Poppins,system-ui; color:#173456; background:#fff; resize:vertical; }
+  
+  /* Auto (four compact readonly fields) */
+  .auto-grid{ display:grid; grid-template-columns:1fr; gap:10px; margin:6px 0 12px; }
+  .auto-item .small-label{ font:600 11.5px/1 Poppins,system-ui; color:#6b7a96; margin-bottom:6px; }
+  @media (min-width: 420px){ .auto-grid{ grid-template-columns:1fr 1fr; } }
+  
+  /* Electricity row: textarea + upload */
+  .row-2{ display:grid; grid-template-columns:1fr 210px; gap:10px; }
+  @media (max-width: 520px){ .row-2{ grid-template-columns:1fr; } }
+  .upload-col{ display:flex; flex-direction:column; gap:8px; }
+  .btn.full{ width:100%; }
+  .filelist{ list-style:none; padding-left:0; margin:0; color:#4b5e84; font:600 12px/1.2 Poppins,system-ui; }
+  .filelist li{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  
+  /* CAM notes */
+  .cam-list{ display:grid; gap:8px; }
+  .cam-row{ display:grid; grid-template-columns:auto 1fr; align-items:center; gap:10px; }
+  .chip{ background:#eef4ff; color:#1b3e77; border:1px solid #cfe0ff; border-radius:999px; padding:6px 10px; font:700 12px/1 Poppins,system-ui; }
+  .link-btn{ justify-self:end; border:none; background:#eaf2ff; color:#2e5fb4; font:800 12px/1 Poppins,system-ui; padding:8px 10px; border-radius:10px; cursor:pointer; }
+  .link-btn:hover{ filter:brightness(.98); }
+  
+  /* Yes/No pills */
+  .yn{ display:flex; gap:16px; margin-top:4px; }
+  .yn input{ display:none; }
+  .yn-pill{ display:inline-flex; align-items:center; border:1px solid #cdd8ef; border-radius:999px; padding:6px 12px; background:#fff; color:#43557b; font:700 13px/1 Poppins,system-ui; cursor:pointer; user-select:none; }
+  .yn-pill.on{ background:#e7f6ee; border-color:#46a26b; color:#1f6a3a; }
+  
+  /* Verified-through stacked pill */
+  .verify-pills{ display:grid; gap:6px; margin-top:8px; }
+  .vpill{ border-radius:8px; padding:10px 12px; background:#f4f6fb; border:1px solid #e2e8f6; font:700 13px/1 Poppins,system-ui; color:#2b3f68; }
+  .vpill.active{ background:#eaf2ff; border-color:#cfe0ff; }
+  
+  /* Buttons */
+  .btn{
+    border:none; background:#2e5fb4; color:#fff; padding:10px 14px; border-radius:10px; font:800 12.5px/1 Poppins,system-ui; cursor:pointer;
+    box-shadow:0 8px 18px rgba(46,95,180,.28); transition:transform .03s ease, filter .15s ease;
+  }
+  .btn.grad{
+    background: linear-gradient(180deg, #5aa0ff 0%, #2f5fb3 100%);
+    box-shadow: 0 8px 18px rgba(46,95,180,.28);
+  }
+  .btn:hover{ filter:brightness(.98); }
+  .btn:active{ transform:translateY(1px); }
+  .btn.ghost{ background:#eef3ff; color:#27476f; border:1px solid #d7e4ff; box-shadow:none; }
+  .btn.big{ min-width:110px; }
+  .btn.disabled{ opacity:.6; cursor:not-allowed; }
+  
+  /* ===== Sticky action bar (sits ABOVE fixed AppFooter) ===== */
+  .cr3-sticky-actions{
+    position: sticky;
+    bottom: calc(var(--footer-space) - 90px); /* keep clear of AppFooter */
+    z-index: 5;
+    padding: 10px 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0), #ffffff 40%);
+    backdrop-filter: saturate(120%);
+  }
+  .cr3-actions-inner{
+    display:flex; align-items:center; gap:10px;
+  }
+  .cr3-actions-inner .spacer{ flex:1; }
+  
+  /* Extra bottom space so last card never hides under sticky bar */
+  .after-actions-spacer{ height: 28px; }
+  
+  /* Small screens */
+  @media (max-width:420px){
+    .btn.big{ min-width:96px; padding:10px 12px; }
+    .cr3-actions-inner{ gap:8px; }
+  }
+  
